@@ -1,0 +1,41 @@
+.board{
+    display: block;
+}
+
+.titleBox{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.deleteBtn{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+}
+
+.title{
+    /* text-align: center;
+    align-self: center; */
+}
+
+.cardList{
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-height: 100px;
+    padding: 20px;
+    width: 350px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    box-sizing: border-box;
+    max-height: calc(100vh - 220px);
+    /* scroll-behavior: smooth; */
+    /* overflow-y: scroll; */
+    scrollbar-color: red yellow;
+    scrollbar-width: thin;
+}
+

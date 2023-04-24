@@ -1,0 +1,18 @@
+.header{
+    width: 1600px;
+    padding: 10px 50px;
+    margin: 0 auto;
+}
+
+.input{
+    width: 1000px;
+    margin-bottom: 10px;
+}
+
+.repoPath{
+    font-size: 18px;
+    color: blue;
+}
+.repoPath:hover{
+   text-decoration: underline;
+}
