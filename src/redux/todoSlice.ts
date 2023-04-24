@@ -18,7 +18,11 @@ const initialState: todoState = {
       title: 'Done',
     },
   ],
-  repoInfo: null,
+  repoInfo: {
+     path: '',
+    url: '',
+    stars: 0,
+  },
   issues: [],
   currentDragCard: null,
   currentDropCard: '',
@@ -49,7 +53,10 @@ const todoSlice = createSlice({
     },
 
     addRepoInfo:(store, {payload}:PayloadAction<repoI>)=> {
-      store.repoInfo = payload;
+      store.repoInfo = {...store.repoInfo, ...payload};
+    },
+    addRepoStatistic:(store, {payload}:PayloadAction<repoI>)=> {
+      store.repoInfo = {...store.repoInfo, ...payload};
     },
 
     addToEndOfBoard: (store, { payload }) => {
@@ -72,7 +79,8 @@ const todoSlice = createSlice({
   
     }).addCase(fetchIssues.fulfilled, (state, { payload })=> {
       console.log('payload: ', payload);
-  state.issues = payload
+      state.issues = payload.resData;
+      state.repoInfo.stars = payload.stars;
     })
   }
 

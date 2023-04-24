@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import css from './Header.module.css';
 import { fetchIssues } from '../redux/todoOperations';
-import { addRepoInfo } from '../redux/todoSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
 import { Input, Typography } from 'antd';
+import { StarFilled } from '@ant-design/icons';
 
-const { Paragraph } = Typography;
+const { Paragraph, Text, Link } = Typography;
 
 const { Search } = Input;
 
@@ -17,13 +17,12 @@ const Header: React.FC = () => {
   const onSearch = (value: string) => {
     const index = value.trim().indexOf('.com');
     const path = value.trim().slice(index + 4);
-    const url = `https://api.github.com/repos${path}`;
-
-    dispatch(addRepoInfo({ path, url: value }));
-    dispatch(fetchIssues(url));
+    dispatch(fetchIssues(path));
   };
 
   const repoPath = repoData?.path.split('/').slice(1).join(' > ');
+  const starCount = Math.round(repoData?.stars / 1000);
+  console.log('starCount: ', starCount);
 
   return (
     <div className={css.header}>
@@ -37,8 +36,12 @@ const Header: React.FC = () => {
         onChange={value => setSearch(value.target.value)}
         onSearch={onSearch}
       />
-      <Paragraph className={css.repoPath}>
-        <a href={search}>{repoPath}</a>
+      <Paragraph>
+        <Link className={css.repoPath} href={search}>
+          {repoPath}
+        </Link>
+        <StarFilled className={css.svg} />
+        <Text className={css.starsCountText}>{starCount} K stars</Text>
       </Paragraph>
     </div>
   );

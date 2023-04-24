@@ -12,14 +12,14 @@ export interface moveCardI{
 export interface repoI{
     path: string;
     url: string;
+    stars: number;
 }
     
 export interface todoState{
-  boards: board[];  
+    boards: board[];  
     issues: issue[];
-    repoInfo: null | repoI;
-
-  currentDragCard: issue | null;
+    repoInfo: repoI ;
+    currentDragCard: issue | null;
     currentDropCard: string;
     todoLoading: boolean,
 }

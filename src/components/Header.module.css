@@ -12,7 +12,19 @@
 .repoPath{
     font-size: 18px;
     color: blue;
+    margin-right: 30px;
 }
 .repoPath:hover{
    text-decoration: underline;
 }
+
+.starsCountText{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.svg{
+    font-size: 20px;
+    color: orange;
+    margin-right: 5px;
+  }
