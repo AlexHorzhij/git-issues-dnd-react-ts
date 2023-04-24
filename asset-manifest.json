@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/git-issues-dnd-react-ts/static/css/main.1826dedf.css",
+    "main.js": "/git-issues-dnd-react-ts/static/js/main.502ccf43.js",
+    "index.html": "/git-issues-dnd-react-ts/index.html",
+    "main.1826dedf.css.map": "/git-issues-dnd-react-ts/static/css/main.1826dedf.css.map",
+    "main.502ccf43.js.map": "/git-issues-dnd-react-ts/static/js/main.502ccf43.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1826dedf.css",
+    "static/js/main.502ccf43.js"
+  ]
+}
