@@ -40,3 +40,14 @@ export interface issue{
     }
 
 }
+
+export interface fetchIssuesI{
+  issues: issue[],
+  repoInfo: repoI,
+}
+
+export interface dndI{
+  boardId: string,
+  dragCard:issue,
+  dropCard:issue,
+}

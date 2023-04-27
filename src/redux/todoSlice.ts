@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 } from 'uuid';
-import { todoState, issue, moveCardI, repoI  } from '../types/typesSlice'
+import { todoState, issue, moveCardI, repoI, fetchIssuesI, dndI  } from '../types/typesSlice'
 import { fetchIssues } from './todoOperations'
 
 const initialState: todoState = {
@@ -61,17 +61,17 @@ const todoSlice = createSlice({
       store.repoInfo = {...store.repoInfo, ...payload};
     },
 
-    addToEndOfBoard: (store, { payload }) => {
+    addToEndOfBoard: (store, { payload }: PayloadAction<dndI>) => {
       const indexDrag = store.issues.findIndex(
         card => card.id === payload.dragCard.id
       );
       store.issues[indexDrag].order = payload.boardId;
     },
-    addNewBoard: (store, { payload }) => {
+    addNewBoard: (store, { payload }: PayloadAction<string>) => {
       const bordId = store.boards.length === 0 ? '1' : v4();     
       store.boards.push({ title: payload, id: bordId });
     },
-    removeBoard: (store, { payload }) => {
+    removeBoard: (store, { payload }: PayloadAction<string>) => {
       store.boards = store.boards.filter(board=> board.id !== payload)
     },
   },
@@ -81,7 +81,7 @@ const todoSlice = createSlice({
       state.todoLoading = true;
       state.error = false;
   
-    }).addCase(fetchIssues.fulfilled, (state, { payload })=> {
+    }).addCase(fetchIssues.fulfilled, (state, { payload }: PayloadAction<fetchIssuesI>)=> {
       state.error = false;
       state.issues = payload.issues;
       state.repoInfo = payload.repoInfo;

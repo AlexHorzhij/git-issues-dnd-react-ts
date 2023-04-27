@@ -31,12 +31,15 @@ const Board: React.FC<IBoard> = ({ data }) => {
   });
 
   const addCardToBoard = (item: issue): void => {
-    const cardData = {
-      dragCard: item,
-      boardId: data.id,
-      dropCard: card,
-    };
-    dispatch(addToEndOfBoard(cardData));
+    if (card) {
+      const cardData = {
+        dragCard: item,
+        boardId: data.id,
+        dropCard: card,
+      };
+
+      dispatch(addToEndOfBoard(cardData));
+    }
   };
 
   const deleteBoard = (): void => {

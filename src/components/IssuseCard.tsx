@@ -45,7 +45,6 @@ const IssuseCard: React.FC<IssueCardProp> = ({ data, boardId }) => {
       boardId: boardId,
       dropCard: data,
     };
-    console.log('cardData: ', cardData);
     dispatch(moveCard(cardData));
   }
 
