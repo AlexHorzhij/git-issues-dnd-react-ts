@@ -1,9 +1,9 @@
+import css from './IssuseCard.module.css';
 import { useEffect } from 'react';
 import { Card, Image, Popover } from 'antd';
-import css from './IssuseCard.module.css';
-import { issue } from '../types/typesSlice';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { useDrag, useDrop } from 'react-dnd';
+import { issue } from '../types/typesSlice';
 import { useAppDispatch } from '../hooks/reduxHook';
 import { addToCurrent, moveCard } from '../redux/todoSlice';
 

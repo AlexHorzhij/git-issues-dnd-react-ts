@@ -5,14 +5,15 @@
     margin: 0 auto;
     display: flex;
     overflow-x: auto;
+   overflow-y:unset;
 }
 
 .boardList {
     display: flex;
+    position: relative;
+    z-index: 100;
     gap: 20px;
-    margin-bottom: 20px;
     align-items: flex-start;
-    /* overflow-x: auto; */
 }
 
 .boardItem{

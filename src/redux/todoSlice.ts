@@ -19,7 +19,8 @@ const initialState: todoState = {
     },
   ],
   repoInfo: {
-     path: '',
+    ownerName: '',
+    repoName: '',
     url: '',
     stars: 0,
   },
@@ -27,6 +28,7 @@ const initialState: todoState = {
   currentDragCard: null,
   currentDropCard: '',
   todoLoading: false,
+  error: null
 };
 
 const todoSlice = createSlice({
@@ -66,7 +68,8 @@ const todoSlice = createSlice({
       store.issues[indexDrag].order = payload.boardId;
     },
     addNewBoard: (store, { payload }) => {
-      store.boards.push({title: payload, id: v4()})
+      const bordId = store.boards.length === 0 ? '1' : v4();     
+      store.boards.push({ title: payload, id: bordId });
     },
     removeBoard: (store, { payload }) => {
       store.boards = store.boards.filter(board=> board.id !== payload)
@@ -75,12 +78,18 @@ const todoSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(fetchIssues.pending, (state)=> {
-      state.todoLoading = true
+      state.todoLoading = true;
+      state.error = false;
   
     }).addCase(fetchIssues.fulfilled, (state, { payload })=> {
-      console.log('payload: ', payload);
-      state.issues = payload.resData;
-      state.repoInfo.stars = payload.stars;
+      state.error = false;
+      state.issues = payload.issues;
+      state.repoInfo = payload.repoInfo;
+      state.todoLoading = false;
+    })
+      .addCase(fetchIssues.rejected, (state) => {
+      state.todoLoading = false;
+      state.error = true;
     })
   }
 

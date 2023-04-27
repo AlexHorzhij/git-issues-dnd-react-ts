@@ -10,7 +10,8 @@ export interface moveCardI{
 }
 
 export interface repoI{
-    path: string;
+    ownerName: string;
+    repoName: string;
     url: string;
     stars: number;
 }
@@ -22,6 +23,7 @@ export interface todoState{
     currentDragCard: issue | null;
     currentDropCard: string;
     todoLoading: boolean,
+    error: any,
 }
 
 

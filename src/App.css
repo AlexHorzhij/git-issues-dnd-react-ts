@@ -4,12 +4,11 @@
   flex-direction: column;
   margin: 0 auto;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.01);
+  /* background-color: rgba(0, 0, 0, 0.01); */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.divider {
+  margin: 12px 0;
 }
 
 

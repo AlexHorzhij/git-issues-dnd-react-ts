@@ -1,10 +1,10 @@
 import css from './Board.module.css';
+import IssuseCard from './IssuseCard';
 import { useState, useEffect } from 'react';
 import { Space, Button, Tooltip, Popconfirm } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '../hooks/reduxHook';
 import { useDrop } from 'react-dnd/dist/hooks';
-import IssuseCard from './IssuseCard';
 import { addToEndOfBoard, removeBoard } from '../redux/todoSlice';
 import { issue } from '../types/typesSlice';
 
@@ -19,8 +19,8 @@ const Board: React.FC<IBoard> = ({ data }) => {
   const [isDisable, setIsDisabled] = useState(false);
   const issues = useAppSelector(state => state.todo.issues);
   const card = useAppSelector(state => state.todo.currentDragCard);
-  const dispatch = useAppDispatch();
   const filtredCards = issues.filter(card => card.order === data.id);
+  const dispatch = useAppDispatch();
 
   const [{ isOver }, drop] = useDrop({
     accept: 'card',
@@ -54,7 +54,7 @@ const Board: React.FC<IBoard> = ({ data }) => {
   return (
     <Space className={css.board}>
       <div className={css.titleBox}>
-        <h2 className={css.title}>{data.title}</h2>{' '}
+        <h2>{data.title}</h2>
         <Popconfirm
           disabled={isDisable}
           title="Delete the board"

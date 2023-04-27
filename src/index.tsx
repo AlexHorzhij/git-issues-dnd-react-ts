@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <PersistGate persistor={persistor} loading={null}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <PersistGate persistor={persistor} loading={null}>
       <DndProvider backend={HTML5Backend}>
         <App />
       </DndProvider>
-    </Provider>
-  </PersistGate>
+    </PersistGate>
+  </Provider>
 );

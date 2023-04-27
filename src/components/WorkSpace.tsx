@@ -1,10 +1,10 @@
 import css from './WorkSpace.module.css';
+import Board from './Board';
 import { useState, useEffect, useRef } from 'react';
 import { Input, Button, Modal } from 'antd';
+import type { InputRef } from 'antd';
 import { useAppSelector, useAppDispatch } from '../hooks/reduxHook';
 import { addNewBoard } from '../redux/todoSlice';
-import Board from './Board';
-import type { InputRef } from 'antd';
 
 const WorkSpace = () => {
   const boards = useAppSelector(state => state.todo.boards);

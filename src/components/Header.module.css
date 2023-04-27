@@ -6,12 +6,12 @@
 
 .input{
     width: 1000px;
-    margin-bottom: 10px;
 }
 
 .repoPath{
     font-size: 18px;
-    color: blue;
+    font-weight: 500;
+    color: #0000ff;
     margin-right: 30px;
 }
 .repoPath:hover{
@@ -25,6 +25,6 @@
 
 .svg{
     font-size: 20px;
-    color: orange;
+    color: #ffa500;
     margin-right: 5px;
   }

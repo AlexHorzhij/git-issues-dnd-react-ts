@@ -1,23 +1,22 @@
 import axios from 'axios';
 
 export const getIssues = async (repoName: string) => {
-  console.log('url: ', repoName);
-  // google/material-design-icons
-  const response = await axios(`https://api.github.com/repos${repoName}/issues`,  {
-    params: {
-      page: 1,
-      per_page: 10,
-    }
-  });
-  // const repo = await axios('');
-  
-  // console.log('repo: ', repo);
-   
+  try {    
+    const response = await axios(`https://api.github.com/repos${repoName}/issues`);
     return response.data
+  } catch (error) {
+    console.log('error: ', error);
+    
+  }
 };
 
 
 export const getRepoData = async (repoName: string) => {
-  const response = await axios(`https://api.github.com/repos${repoName}`);
-  return response;
+  try {
+    const response = await axios(`https://api.github.com/repos${repoName}`);
+    return response;
+  } catch (error) {
+    console.log('error: ', error);
+    
+  }
 }

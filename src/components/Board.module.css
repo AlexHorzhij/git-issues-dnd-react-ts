@@ -16,11 +16,6 @@
     right: 5px;
 }
 
-.title{
-    /* text-align: center;
-    align-self: center; */
-}
-
 .cardList{
     box-sizing: border-box;
     border-radius: 10px;
@@ -33,9 +28,5 @@
     gap:10px;
     box-sizing: border-box;
     max-height: calc(100vh - 220px);
-    /* scroll-behavior: smooth; */
-    /* overflow-y: scroll; */
-    scrollbar-color: red yellow;
-    scrollbar-width: thin;
 }
 
