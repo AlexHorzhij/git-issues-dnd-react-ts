@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/git-issues-dnd-react-ts/static/css/main.eab33577.css",
+    "main.css": "/git-issues-dnd-react-ts/static/css/main.416dc822.css",
     "main.js": "/git-issues-dnd-react-ts/static/js/main.37074497.js",
     "index.html": "/git-issues-dnd-react-ts/index.html",
-    "main.eab33577.css.map": "/git-issues-dnd-react-ts/static/css/main.eab33577.css.map",
+    "main.416dc822.css.map": "/git-issues-dnd-react-ts/static/css/main.416dc822.css.map",
     "main.37074497.js.map": "/git-issues-dnd-react-ts/static/js/main.37074497.js.map"
   },
   "entrypoints": [
-    "static/css/main.eab33577.css",
+    "static/css/main.416dc822.css",
     "static/js/main.37074497.js"
   ]
 }
