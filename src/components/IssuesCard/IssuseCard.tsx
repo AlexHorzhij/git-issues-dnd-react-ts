@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { Card, Image, Popover } from 'antd';
 import { formatDistanceToNowStrict } from 'date-fns';
 import { useDrag, useDrop } from 'react-dnd';
-import { issue } from '../types/typesSlice';
-import { useAppDispatch } from '../hooks/reduxHook';
-import { addToCurrent, moveCard } from '../redux/todoSlice';
+import { issue } from 'types/typesSlice';
+import { useAppDispatch } from 'hooks/reduxHook';
+import { addToCurrent, moveCard } from 'redux/todoSlice';
 
 interface IssueCardProp {
   data: issue;

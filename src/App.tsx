@@ -1,7 +1,7 @@
 import { Divider } from 'antd';
 import './App.css';
-import WorkSpace from './components/WorkSpace';
-import Header from './components/Header';
+import WorkSpace from './components/WorkSpace/WorkSpace';
+import Header from './components/Header/Header';
 
 function App() {
   return (

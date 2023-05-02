@@ -1,13 +1,14 @@
 import css from './Board.module.css';
 import clsx from 'clsx';
-import IssuseCard from './IssuseCard';
+import IssuseCard from 'components/IssuesCard/IssuseCard';
 import { useState, useEffect } from 'react';
 import { Space, Button, Tooltip, Popconfirm } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import { useAppSelector, useAppDispatch } from '../hooks/reduxHook';
+import { useAppSelector, useAppDispatch } from 'hooks/reduxHook';
 import { useDrop } from 'react-dnd/dist/hooks';
-import { addToEndOfBoard, removeBoard } from '../redux/todoSlice';
-import { issue } from '../types/typesSlice';
+import { addToEndOfBoard, removeBoard } from 'redux/todoSlice';
+import { todoIssues, draggedCard } from 'redux/todoSelector';
+import { issue } from 'types/typesSlice';
 
 interface IBoard {
   data: {
@@ -18,8 +19,8 @@ interface IBoard {
 
 const Board: React.FC<IBoard> = ({ data }) => {
   const [isDisable, setIsDisabled] = useState(false);
-  const issues = useAppSelector(state => state.todo.issues);
-  const card = useAppSelector(state => state.todo.currentDragCard);
+  const issues = useAppSelector(todoIssues);
+  const card = useAppSelector(draggedCard);
   const filtredCards = issues.filter(card => card.order === data.id);
   const dispatch = useAppDispatch();
 

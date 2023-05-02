@@ -1,7 +1,8 @@
 import css from './Header.module.css';
 import { useState } from 'react';
-import { fetchIssues } from '../redux/todoOperations';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHook';
+import { fetchIssues } from 'redux/todoOperations';
+import { repoInfo, errorData, isLoading } from 'redux/todoSelector';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHook';
 import { Input, Typography, Alert } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 
@@ -9,9 +10,9 @@ const { Paragraph, Text, Link } = Typography;
 const { Search } = Input;
 
 const Header: React.FC = () => {
-  const repoData = useAppSelector(state => state.todo.repoInfo);
-  const error = useAppSelector(state => state.todo.error);
-  const isLoad = useAppSelector(state => state.todo.todoLoading);
+  const repoData = useAppSelector(repoInfo);
+  const error = useAppSelector(errorData);
+  const isLoad = useAppSelector(isLoading);
   const [search, setSearch] = useState(repoData?.url);
   const dispatch = useAppDispatch();
 
