@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         onSearch={onSearch}
       />
       {repoData.ownerName && (
-        <Paragraph style={{ margin: '8px 0' }}>
+        <Paragraph className={css.repoTextWrapper}>
           <Link className={css.repoPath} href={search}>
             {`${repoData.ownerName} > ${repoData.repoName}`}
           </Link>

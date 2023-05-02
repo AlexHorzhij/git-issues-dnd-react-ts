@@ -1,4 +1,5 @@
 import css from './Board.module.css';
+import clsx from 'clsx';
 import IssuseCard from './IssuseCard';
 import { useState, useEffect } from 'react';
 import { Space, Button, Tooltip, Popconfirm } from 'antd';
@@ -84,13 +85,8 @@ const Board: React.FC<IBoard> = ({ data }) => {
         </Popconfirm>
       </div>
       <ul
-        className={css.cardList}
+        className={clsx(css.cardList, isOver && css.cardListIsOver)}
         ref={drop}
-        style={{
-          boxShadow: isOver
-            ? 'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset'
-            : 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-        }}
       >
         {filtredCards.map(issue => (
           <li key={issue.id}>

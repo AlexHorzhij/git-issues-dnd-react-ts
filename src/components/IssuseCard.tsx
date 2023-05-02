@@ -1,4 +1,5 @@
 import css from './IssuseCard.module.css';
+import clsx from 'clsx';
 import { useEffect } from 'react';
 import { Card, Image, Popover } from 'antd';
 import { formatDistanceToNowStrict } from 'date-fns';
@@ -51,18 +52,20 @@ const IssuseCard: React.FC<IssueCardProp> = ({ data, boardId }) => {
   return (
     <div
       ref={drop}
+      className={css.cardWrapper}
       style={{
         paddingTop: isOver && !isDragging ? '40px' : 0,
-        transitionProperty: 'padding',
-        transitionDuration: '500ms',
       }}
     >
       <Card
         ref={drag}
-        className={css.card}
+        className={clsx(
+          css.card,
+          isDragging && css.cardIsDragging,
+          isOver && css.cardIsOver
+        )}
         bodyStyle={{
           padding: 15,
-          width: 280,
         }}
         title={
           <Popover content={data.title}>
@@ -70,33 +73,15 @@ const IssuseCard: React.FC<IssueCardProp> = ({ data, boardId }) => {
           </Popover>
         }
         extra={
-          <Image
-            width={30}
-            src={data.user.avatar_url}
-            style={{ marginLeft: 10 }}
-          />
+          <Image width={30} src={data.user.avatar_url} className={css.avatar} />
         }
-        style={{
-          width: '100%',
-          boxShadow: isOver
-            ? '0px 4px 14px rgba(0, 0, 0, 0.5)'
-            : '0px 4px 14px rgba(0, 0, 0, 0.11)',
-          border: isDragging ? '5px solid red' : '1px solid  white',
-          opacity: isDragging ? '0.3' : '1',
-        }}
       >
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            marginBottom: 10,
-          }}
-        >
-          <span style={{ marginRight: 10 }}>{data.id}</span>
+        <div className={css.descriptionWrapper}>
+          <span className={css.text}>{data.id}</span>
           <span>opened {time} ago</span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-          <span style={{ marginRight: 10 }}>{data.author_association}</span>
+        <div className={css.commentsWrapper}>
+          <span className={css.text}>{data.author_association}</span>
           <span className={css.comments}>comments: {data.comments}</span>
         </div>
       </Card>

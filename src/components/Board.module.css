@@ -1,32 +1,37 @@
-.board{
-    display: block;
+.board {
+  display: block;
 }
 
-.titleBox{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+.titleBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.deleteBtn{
-    position: absolute;
-    top: 2px;
-    right: 5px;
+.deleteBtn {
+  position: absolute;
+  top: 2px;
+  right: 5px;
 }
 
-.cardList{
-    box-sizing: border-box;
-    border-radius: 10px;
-    min-height: 100px;
-    padding: 20px;
-    width: 350px;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    gap:10px;
-    box-sizing: border-box;
-    max-height: calc(100vh - 220px);
+.cardList {
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 100px;
+  padding: 20px;
+  width: 350px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 220px);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.cardListIsOver {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
